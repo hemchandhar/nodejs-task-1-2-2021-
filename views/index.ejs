@@ -1,7 +1,19 @@
-<input
-  class="form-control"
-  type="text"
-  placeholder="Readonly input here..."
-  aria-label="readonly input example"
-  readonly
-/>
+<h2>Record your Attendance using Attendance Recorder</h2>
+
+<form class="row g-3" style="margin-top: 40px" method="POST" action="/user">
+  <h3>Kaar Technologies</h3>
+  <div class="input-group mb-2">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Name"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">
+      Confirm Attendance
+    </button>
+  </div>
+</form>

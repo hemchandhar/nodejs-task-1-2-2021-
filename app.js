@@ -3,19 +3,19 @@ var createError = require("http-errors");
 //Express
 var express = require("express");
 var path = require("path");
-
 var indexRouter = require("./routes/index");
-
 var app = express();
 
-const mySql = require("mysql");
+const mySql = require("mysql2");
 const { success, error } = require("consola");
+const expressLayouts = require("express-ejs-layouts");
+const { DBPASSWORD } = require("./config/dotenv");
 
 //Database connection creation
 const db = mySql.createConnection({
   host: "localhost",
   user: "root",
-  password: "12345678",
+  password: DBPASSWORD,
   database: "users",
 });
 
@@ -29,11 +29,11 @@ db.connect((err) => {
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
+app.use(express.static(__dirname + "/public"));
+app.use(expressLayouts);
 app.set("view engine", "ejs");
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use("/", indexRouter);
@@ -53,5 +53,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
 module.exports = app;
