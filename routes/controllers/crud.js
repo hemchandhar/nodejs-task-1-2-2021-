@@ -16,3 +16,11 @@ module.exports.createAttendance = (req, res) => {
     }
   });
 };
+
+module.exports.getAdmin = (req, res) => {
+  var sql = "SELECT * FROM user";
+  db.query(sql, function (err, data) {
+    if (err) throw err;
+    res.render("admin", { userData: data });
+  });
+};

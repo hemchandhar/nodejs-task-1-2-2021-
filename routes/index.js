@@ -10,4 +10,6 @@ router.get("/", function (req, res, next) {
 
 router.post("/", crudController.createAttendance);
 
+router.get("/admin", crudController.getAdmin);
+
 module.exports = router;
