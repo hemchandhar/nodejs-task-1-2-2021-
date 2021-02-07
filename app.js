@@ -10,22 +10,7 @@ const mySql = require("mysql2");
 const { success, error } = require("consola");
 const expressLayouts = require("express-ejs-layouts");
 const { DBPASSWORD } = require("./config/dotenv");
-
-//Database connection creation
-const db = mySql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: DBPASSWORD,
-  database: "users",
-});
-
-db.connect((err) => {
-  if (err) {
-    error({ message: `UNABLE TO CONNECT TO DATABASE ${err}`, badge: true });
-  } else {
-    success({ message: `MYSQL DATABASE CONNECTED`, badge: true });
-  }
-});
+const bodyParser = require("body-parser");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -33,6 +18,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(expressLayouts);
 app.set("view engine", "ejs");
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
 //Routes

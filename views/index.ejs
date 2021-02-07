@@ -1,19 +1,24 @@
-<h2>Record your Attendance using Attendance Recorder</h2>
-
-<form class="row g-3" style="margin-top: 40px" method="POST" action="/user">
-  <h3>Kaar Technologies</h3>
+<form class="row g-3" style="margin-top: 40px" method="POST" action="/">
+  <h2 style="margin-bottom: 20px">Attendance Recorder - Kaar Technologies</h2>
   <div class="input-group mb-2">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Name"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-    />
+    <input type="text" class="form-control" placeholder="Name" name="name" />
   </div>
-  <div class="col-auto">
+  <input id="datepicker" name="date" />
+  <div class="col-auto" style="margin-top: 30px">
     <button type="submit" class="btn btn-primary mb-3">
       Confirm Attendance
     </button>
+    <button
+      type="submit"
+      class="btn btn-primary mb-3"
+      style="margin-left: 20px"
+    >
+      <a href="#" style="color: #fff; text-decoration: none">Admin</a>
+    </button>
   </div>
 </form>
+<script>
+  $("#datepicker").datepicker({
+    uiLibrary: "bootstrap4",
+  });
+</script>
