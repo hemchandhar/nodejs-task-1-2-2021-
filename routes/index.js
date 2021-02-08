@@ -8,7 +8,7 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 
-router.post("/", crudController.createAttendance);
+router.post("/", crudController.postAttendance);
 
 router.get("/admin", crudController.getAdmin);
 

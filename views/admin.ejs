@@ -7,6 +7,7 @@
       <th>S.No</th>
       <th>Name</th>
       <th>Date</th>
+      <th>Attendance</th>
     </tr>
   </thead>
   <% if(userData.length!=0){ var i=1; userData.forEach(function(data){ %>
@@ -14,6 +15,7 @@
     <td><%=i; %></td>
     <td><%=data.name %></td>
     <td><%=data.date %></td>
+    <td><%=data.attendance %></td>
     <td><a href="/users/edit/<%=data.name%>">Edit</a></td>
     <td><a href="/users/delete/<%=data.name%>">Delete</a></td>
   </tr>

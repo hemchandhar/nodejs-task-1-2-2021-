@@ -1,10 +1,42 @@
-<form class="row g-3" style="margin-top: 40px" method="POST" action="/">
-  <h2 style="margin-bottom: 20px">Attendance Recorder - Kaar Technologies</h2>
+<form
+  class="row g-3"
+  style="margin-top: 40px; display: flex; flex-direction: column"
+  method="POST"
+  action="/"
+>
+  <h2 style="margin-bottom: 30px">Attendance Recorder - Kaar Technologies</h2>
   <div class="input-group mb-2">
     <input type="text" class="form-control" placeholder="Name" name="name" />
   </div>
   <input id="datepicker" name="date" />
-  <div class="col-auto" style="margin-top: 30px">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 30px;
+    "
+  >
+    <div class="custom-control custom-radio">
+      <input
+        type="radio"
+        id="customRadio1"
+        name="customRadio1"
+        class="custom-control-input"
+      />
+      <label class="custom-control-label" for="customRadio1">Present</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input
+        type="radio"
+        id="customRadio2"
+        name="customRadio2"
+        class="custom-control-input"
+      />
+      <label class="custom-control-label" for="customRadio2">Absent</label>
+    </div>
+  </div>
+  <div style="margin-top: 30px">
     <button type="submit" class="btn btn-primary mb-3">
       Confirm Attendance
     </button>
@@ -17,6 +49,7 @@
     </button>
   </div>
 </form>
+
 <script>
   $("#datepicker").datepicker({
     uiLibrary: "bootstrap4",
