@@ -4,6 +4,7 @@ const alert = require("alert");
 
 //CREATE Operation
 module.exports.postAttendance = (req, res) => {
+  console.log(req.body.customRadio);
   const sql = "INSERT INTO user (id,name, date,attendance) VALUES (?,?,?,?)";
   db.query(
     sql,
@@ -11,7 +12,7 @@ module.exports.postAttendance = (req, res) => {
       uuidv4(),
       req.body.name,
       req.body.date,
-      req.body.customRadio1 == "on" ? "Present" : "Absent",
+      req.body.customRadio == "present" ? "Present" : "Absent",
     ],
     function (err, data) {
       if (err) {
