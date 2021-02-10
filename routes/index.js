@@ -16,4 +16,6 @@ router.get("/users/edit/:id", crudController.getUsers);
 
 router.post("/user/update/:id", crudController.postUsers);
 
+router.get("/user/delete/:id", crudController.deleteUsers);
+
 module.exports = router;

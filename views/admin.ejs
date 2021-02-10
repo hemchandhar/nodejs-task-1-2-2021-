@@ -17,7 +17,7 @@
     <td><%=data.date %></td>
     <td><%=data.attendance %></td>
     <td><a href="/users/edit/<%=data.id%>">Edit</a></td>
-    <td><a href="/users/delete/<%=data.id%>">Delete</a></td>
+    <td><a href="/user/delete/<%= data.id %> ">Delete</a></td>
   </tr>
   <% i++; }) %> <% } else{ %>
   <tr>

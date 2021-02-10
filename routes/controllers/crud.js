@@ -1,5 +1,6 @@
 const db = require("../../models/db");
 const { v4: uuidv4 } = require("uuid");
+const alert = require("alert");
 
 //CREATE Operation
 module.exports.postAttendance = (req, res) => {
@@ -54,18 +55,41 @@ module.exports.postUsers = (req, res) => {
   const id = req.params.id;
   const sql = "UPDATE user SET name=?,date=?,attendance=? WHERE id=?";
   console.log(id);
-  db.query(sql, [name, date, attendance, id], function (err, data) {
+  db.query(sql, [name, date, attendance, id], function (err) {
     if (err) {
       console.log(err);
       res.render("toast", {
-        message: "Error in Updating your Response! Please try again",
+        message: "Error in Updating the Response! Please try again",
         buttonName: "Back to Admin",
         link: "/admin",
       });
     } else {
       console.log("Values Successfully Updated");
       res.render("toast", {
-        message: "Your Response is Recorded",
+        message: "The Response is Updated",
+        buttonName: "Back to Admin",
+        link: "/admin",
+      });
+    }
+  });
+};
+
+module.exports.deleteUsers = (req, res) => {
+  const id = req.params.id;
+  const sql = "DELETE FROM user WHERE id=?";
+  console.log(id);
+  db.query(sql, [id], function (err) {
+    if (err) {
+      console.log(err);
+      res.render("toast", {
+        message: "Error in Deleting the Response! Please try again",
+        buttonName: "Back to Admin",
+        link: "/admin",
+      });
+    } else {
+      console.log("Values Deleted Successfully");
+      res.render("toast", {
+        message: "The Response is Deleted",
         buttonName: "Back to Admin",
         link: "/admin",
       });
