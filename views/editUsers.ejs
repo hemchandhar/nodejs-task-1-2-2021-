@@ -1,0 +1,36 @@
+<form
+  class="row g-3"
+  style="margin-top: 40px; display: flex; flex-direction: column"
+  method="POST"
+  action="/user/update/<%- userData[0].id %> "
+>
+  <h2 style="margin-bottom: 30px">
+    Edit <span style="color: blueviolet"><%= userData[0].name %></span> Response
+  </h2>
+  <div class="input-group mb-2">
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      value="<%- userData[0].name %>"
+    />
+  </div>
+  <input id="datepicker" name="date" value="<%= userData[0].date %>" />
+  <div class="input-group mt-2">
+    <input
+      type="text"
+      class="form-control"
+      name="attendance"
+      value="<%- userData[0].attendance %>"
+    />
+  </div>
+  <div style="margin-top: 30px">
+    <button type="submit" class="btn btn-primary mb-3">Save</button>
+  </div>
+</form>
+
+<script>
+  $("#datepicker").datepicker({
+    uiLibrary: "bootstrap4",
+  });
+</script>
